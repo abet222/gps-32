@@ -1,4 +1,3 @@
-```yaml
 name: Python CI
 
 on:
@@ -44,4 +43,3 @@ jobs:
       with:
         files: ./coverage.xml
         fail_ci_if_error: true
-```
