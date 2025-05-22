@@ -23,7 +23,7 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-        pip install pylint pytest pytest-cov
+        pip install pylint
 
     - name: Run pylint
       run: |
@@ -33,14 +33,3 @@ jobs:
       run: |
         pip install pytest pytest-cov
         pytest test.py --cov=./ --cov-report=xml
-
-    - name: Verify coverage file
-      run: |
-        ls -la coverage.xml || echo "coverage.xml not found"
-
-    - name: Upload coverage report
-      uses: codecov/codecov-action@v4
-      with:
-        files: ./coverage.xml
-        token: ${{ secrets.CODECOV_TOKEN }}
-        fail_ci_if_error: false  # Changed to false to avoid pipeline failure
